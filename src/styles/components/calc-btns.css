@@ -1,0 +1,71 @@
+.calc-btns-container {
+  font-size: 30px;
+  background-color: var(--toggleBackgroundKeypadBackground);
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 30px 30px;
+}
+
+.calc-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.calc-bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 28px;
+}
+
+button {
+  width: 100%;
+  max-width: 100px;
+  background-color: var(--keyBackground2);
+  color: var(--btnKey);
+  border-bottom: 4px solid var(--keyShadow3);
+  border-radius: 10px;
+  height: 60px;
+  font-size: clamp(28px, 4cqw, 32px);
+
+  &:hover {
+    background-color: var(--hoverKey);
+    border-bottom: 4px solid var(--hoverKeyBorder);
+  }
+
+  &.reset,
+  &.del {
+    text-transform: uppercase;
+    background-color: var(--keyBackground);
+    color: var(--text1);
+    border-bottom: 4px solid var(--keyShadow);
+    max-width: 300px;
+
+    &:hover {
+      background-color: var(--hoverDelReset);
+      border-bottom: 4px solid var(--keyShadow);
+    }
+  }
+
+  &.calculate {
+    max-width: 300px;
+    background-color: var(--keyBackgroundToggle);
+    color: var(--equal);
+    border-bottom: 4px solid var(--keyShadow2);
+
+    &:hover {
+      background-color: var(--equalHover);
+    }
+  }
+}
+
+@media (width < 460px) {
+  .calc-top {
+    gap: 15px;
+  }
+
+  .calc-bottom {
+    gap: 20px;
+  }
+}

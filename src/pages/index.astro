@@ -1,4 +1,10 @@
 ---
+import "../styles/index.css";
+import CalcHeader from "../components/CalcHeader.astro";
+import CalcDisplay from "../components/CalcDisplay.astro";
+import CalcBtns from "../components/CalcBtns.astro";
+
+const pageTitle = "Calculator app";
 ---
 
 <html lang="en">
@@ -6,10 +12,42 @@
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1 class="sr-only">{pageTitle}</h1>
+		<main>
+			<CalcHeader />
+			<CalcDisplay />
+			<CalcBtns />
+		</main>
+		<script>
+			const themeButtons = document.querySelectorAll(".theme-btn");
+
+			function setTheme(theme) {
+				document.body.className = theme;
+				themeButtons.forEach((button) => {
+					button.classList.toggle(
+						"active",
+						button.classList.contains(theme)
+					);
+				});
+			}
+
+			function handleButtonClick(event) {
+				const theme = event.currentTarget.classList[1];
+				setTheme(theme);
+			}
+
+			themeButtons.forEach((button) => {
+				button.addEventListener("click", handleButtonClick);
+			});
+		</script>
 	</body>
 </html>
