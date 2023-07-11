@@ -1,6 +1,6 @@
 @import "./reset/reset.css";
 @import "./variables/variables.css";
 @import "./layout/main.css";
-@import "./components/calc-header.css";
-@import "./components/calc-display.css";
-@import "./components/calc-btns.css";
+@import "./components/calcHeader.css";
+@import "./components/calcDisplay.css";
+@import "./components/calcButtons.css";

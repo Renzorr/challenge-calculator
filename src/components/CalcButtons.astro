@@ -1,0 +1,165 @@
+---
+const buttons = [
+    {
+        value: 7,
+        type: "number",
+    },
+    {
+        value: 8,
+        type: "number",
+    },
+    {
+        value: 9,
+        type: "number",
+    },
+    {
+        value: "del",
+        type: "delete",
+    },
+    {
+        value: 4,
+        type: "number",
+    },
+    {
+        value: 5,
+        type: "number",
+    },
+    {
+        value: 6,
+        type: "number",
+    },
+    {
+        value: "+",
+        type: "operator",
+    },
+    {
+        value: 1,
+        type: "number",
+    },
+    {
+        value: 2,
+        type: "number",
+    },
+    {
+        value: 3,
+        type: "number",
+    },
+    {
+        value: "-",
+        type: "operator",
+    },
+    {
+        value: ".",
+        type: "decimal",
+    },
+    {
+        value: 0,
+        type: "number",
+    },
+    {
+        value: "/",
+        type: "operator",
+    },
+    {
+        value: "x",
+        type: "operator",
+    },
+    {
+        value: "reset",
+        type: "reset",
+    },
+    {
+        value: "=",
+        type: "calculate",
+    },
+];
+---
+
+<div class="calc-btns-container">
+    <div class="calc-grid">
+        {
+            buttons.map((button) => {
+                if (
+                    button.type !== "operator" &&
+                    button.type !== "number" &&
+                    button.type !== "decimal"
+                ) {
+                    return (
+                        <button class={`${button.value} ${button.type}`}>
+                            {button.value}
+                        </button>
+                    );
+                } else {
+                    return (
+                        <button class={`btn ${button.type}`}>{button.value}</button>
+                    );
+                }
+            })
+        }
+    </div>
+</div>
+
+<script>
+    const numbers = document.querySelectorAll(".number");
+    const operators = document.querySelectorAll(".operator");
+    const calculateBtn = document.querySelector(".calculate");
+    const resultArea = document.querySelector("#result-area");
+    const decimalBtn = document.querySelector(".decimal");
+    const resetBtn = document.querySelector(".reset");
+    const delBtn = document.querySelector(".del");
+
+    let number1, number2, operatorType, total;
+
+    function calculateOperation(operatorType) {
+        switch (operatorType) {
+            case "+":
+                return (total = number1 + number2);
+            case "-":
+                return (total = number1 - number2);
+            case "x":
+                return (total = number1 * number2);
+            case "/":
+                return (total = number1 / number2);
+        }
+    }
+
+    numbers.forEach((number) => {
+        number.addEventListener("click", () => {
+            if (resultArea.innerHTML.includes(operatorType)) {
+                resultArea.innerHTML = "";
+            }
+            resultArea.innerHTML += number.innerHTML;
+            number2 = parseFloat(resultArea.textContent);
+        });
+    });
+
+    operators.forEach((operator) => {
+        operator.addEventListener("click", () => {
+            if (resultArea.textContent.trim() === "") {
+                return;
+            }
+            number1 = parseFloat(resultArea.textContent);
+            operatorType = operator.innerHTML;
+            resultArea.innerHTML = operator.innerHTML;
+        });
+    });
+
+    decimalBtn.addEventListener("click", () => {
+        if (!resultArea.innerHTML.includes(".")) {
+            resultArea.innerHTML += ".";
+        }
+    });
+
+    calculateBtn.addEventListener("click", () => {
+        calculateOperation(operatorType);
+        resultArea.innerHTML = total;
+    });
+
+    resetBtn.addEventListener("click", () => {
+        resultArea.innerHTML = "";
+    });
+
+    delBtn.addEventListener("click", () => {
+        resultArea.innerHTML = resultArea.innerHTML.slice(0, -1);
+    });
+</script>

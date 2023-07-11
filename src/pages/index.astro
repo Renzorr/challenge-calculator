@@ -2,7 +2,7 @@
 import "../styles/index.css";
 import CalcHeader from "../components/CalcHeader.astro";
 import CalcDisplay from "../components/CalcDisplay.astro";
-import CalcBtns from "../components/CalcBtns.astro";
+import CalcButtons from "../components/CalcButtons.astro";
 
 const pageTitle = "Calculator app";
 ---
@@ -25,29 +25,7 @@ const pageTitle = "Calculator app";
 		<main>
 			<CalcHeader />
 			<CalcDisplay />
-			<CalcBtns />
+			<CalcButtons />
 		</main>
-		<script>
-			const themeButtons = document.querySelectorAll(".theme-btn");
-
-			function setTheme(theme) {
-				document.body.className = theme;
-				themeButtons.forEach((button) => {
-					button.classList.toggle(
-						"active",
-						button.classList.contains(theme)
-					);
-				});
-			}
-
-			function handleButtonClick(event) {
-				const theme = event.currentTarget.classList[1];
-				setTheme(theme);
-			}
-
-			themeButtons.forEach((button) => {
-				button.addEventListener("click", handleButtonClick);
-			});
-		</script>
 	</body>
 </html>

@@ -21,3 +21,23 @@
         </div>
     </div>
 </header>
+
+<script>
+    const themeButtons = document.querySelectorAll(".theme-btn");
+
+    function setTheme(theme) {
+        document.body.className = theme;
+        themeButtons.forEach((button) => {
+            button.classList.toggle("active", button.classList.contains(theme));
+        });
+    }
+
+    function handleButtonClick(event) {
+        const theme = event.currentTarget.classList[1];
+        setTheme(theme);
+    }
+
+    themeButtons.forEach((button) => {
+        button.addEventListener("click", handleButtonClick);
+    });
+</script>

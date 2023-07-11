@@ -1,0 +1,57 @@
+.calc-btns-container {
+  margin-top: 3rem;
+  border-radius: 1rem;
+  padding: clamp(1.8rem, 4cqw, 3rem);
+  background-color: var(--toggleBackgroundKeypadBackground);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.7rem, 4cqw, 2.8rem);
+}
+
+button {
+  font-size: clamp(2.8rem, 4cqw, 3.2rem);
+  height: 6rem;
+  border-radius: 1rem;
+}
+
+.btn {
+  color: var(--btnKey);
+  background-color: var(--keyBackground2);
+  border-bottom: 0.4rem solid var(--keyShadow3);
+
+  &:hover {
+    background-color: var(--hoverKey);
+    border-bottom: 0.4rem solid var(--hoverKeyBorder);
+  }
+}
+
+.reset,
+.del {
+  color: var(--text1);
+  background-color: var(--keyBackground);
+  border-bottom: 0.4rem solid var(--keyShadow);
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--hoverDelReset);
+    border-bottom: 0.4rem solid var(--keyShadow);
+  }
+}
+
+.reset {
+  grid-column: 1/3;
+}
+
+.calculate {
+  grid-column: 3/5;
+  background-color: var(--keyBackgroundToggle);
+  color: var(--equal);
+  border-bottom: 0.4rem solid var(--keyShadow2);
+
+  &:hover {
+    background-color: var(--equalHover);
+  }
+}

@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: inherit;
   font-size: 62.5%;
+  transition: 0.2s;
 }
 
 body {
@@ -11,8 +12,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--mainBackground);
   min-height: 100vh;
+  background: var(--mainBackground);
 }
 
 a {
