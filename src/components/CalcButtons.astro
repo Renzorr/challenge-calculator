@@ -145,18 +145,26 @@ const buttons = [
     });
 
     decimalBtn.addEventListener("click", () => {
+        if (resultArea.innerHTML.includes(operatorType)) {
+            resultArea.innerHTML = "";
+        }
         if (!resultArea.innerHTML.includes(".")) {
             resultArea.innerHTML += ".";
         }
     });
 
     calculateBtn.addEventListener("click", () => {
+        if (!number1 && !number2) return;
         calculateOperation(operatorType);
         resultArea.innerHTML = total;
     });
 
     resetBtn.addEventListener("click", () => {
-        resultArea.innerHTML = "";
+        number1 = undefined;
+        number2 = undefined;
+        operatorType = undefined;
+        total = undefined;
+        resultArea.textContent = "";
     });
 
     delBtn.addEventListener("click", () => {

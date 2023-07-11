@@ -6,7 +6,7 @@
   height: 12.9rem;
   background: var(--screenBackground);
   color: var(--text3);
-  font-size: clamp(6rem, 4cqw, 8rem);
+  font-size: clamp(4.3rem, 4cqw, 6rem);
   border-radius: 1.5rem;
   padding-right: 3rem;
   overflow: auto hidden;

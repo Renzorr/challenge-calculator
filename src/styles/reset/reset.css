@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: inherit;
   font-size: 62.5%;
-  transition: 0.2s;
 }
 
 body {
@@ -13,6 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  overflow: hidden;
   background: var(--mainBackground);
 }
 
