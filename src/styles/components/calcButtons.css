@@ -12,8 +12,8 @@
 }
 
 button {
-  font-size: clamp(2.8rem, 4cqw, 3.2rem);
-  height: 6rem;
+  font-size: clamp(3rem, 4cqw, 4rem);
+  height: 6.5rem;
   border-radius: 1rem;
 }
 
@@ -26,6 +26,12 @@ button {
     background-color: var(--hoverKey);
     border-bottom: 0.4rem solid var(--hoverKeyBorder);
   }
+}
+
+.reset,
+.del,
+.calculate {
+  font-size: clamp(2.2rem, 4cqw, 2.7rem);
 }
 
 .reset,

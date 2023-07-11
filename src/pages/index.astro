@@ -5,6 +5,8 @@ import CalcDisplay from "../components/CalcDisplay.astro";
 import CalcButtons from "../components/CalcButtons.astro";
 
 const pageTitle = "Calculator app";
+const metaDescription =
+	"Our simple calculator is designed to make your everyday calculations a breeze. With its straightforward interface and basic functions, it provides the essential tools you need for quick math operations. ";
 ---
 
 <html lang="en">
@@ -12,12 +14,7 @@ const pageTitle = "Calculator app";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
-			rel="stylesheet"
-		/>
+		<meta name="description" content={metaDescription} />
 		<title>{pageTitle}</title>
 	</head>
 	<body>
